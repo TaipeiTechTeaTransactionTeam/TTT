@@ -6,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 html, body{
     font-size: 100%;
-	font-family: 'Open Sans', sans-serif;
+	font-family: "Noto Sans CJK TC Regular", "微軟正黑體", sans-serif,'Open Sans', sans-serif;
 	background:#ffffff;
 }
 ul li,ol li{
@@ -16,9 +16,14 @@ p{
 	margin:0;
 }
 h1,h2,h3,h4,h5,h6,a{
-	font-family: 'Raleway', sans-serif;
+    font-family:"Noto Sans CJK TC Regular", "微軟正黑體", sans-serif,'Open Sans', sans-serif;
+
 	margin:0;
 	font-weight:700;
+}
+.skdslider > .slides   h3
+{
+    text-shadow: -1px 2px 5px black;
 }
 ul,label{
 	margin:0;

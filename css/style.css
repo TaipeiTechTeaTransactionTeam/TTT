@@ -1957,7 +1957,7 @@ a.callbacks1_s3.active,a.callbacks1_s3:focus{
     top: 22%;
     width: 50%;
     padding: 2em;
-    background: #03ad1d;
+    background: rgba(3, 173, 29,0.5);
 }
 .agileits_w3layouts_map_pos h3{
 	font-size:1.5em;

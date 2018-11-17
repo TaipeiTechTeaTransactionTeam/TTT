@@ -937,11 +937,11 @@ a.w3_agile_vimeo:hover{
     color: #fff;
     display: block;
     width: 100%;
-    background:#3399cc;
+    background:#03ad1d;
     margin: 1.5em 0 0;
 }
 .login-form-grids input[type="submit"]:hover{
-	background:#03ad1d;
+	background:#3399cc;
 }
 .login-form-grids ::-webkit-input-placeholder{
 	color:#999;

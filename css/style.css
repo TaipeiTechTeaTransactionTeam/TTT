@@ -614,14 +614,14 @@ i.gray-star {
 }
 .ban-bottom1 {
     float: left;
-    width: 48%;
+    width: 100%;
 	margin-right:2%
 }
-.ban-bottom2 {
+/* .ban-bottom2 {
     float: left;
     width: 48%;
 	margin-left:2%
-}
+} */
 .ban-img {
     margin-top: 2.1em;
 }
@@ -834,7 +834,7 @@ i.fa.fa-arrow-right {
 	line-height:1.8em;
 }
 .footer-copy p a{
-	color:#ff9b05;
+	color:#03ad1d;
 	text-decoration:none;
 }
 .footer-copy p a:hover{

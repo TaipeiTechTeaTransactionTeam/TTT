@@ -1500,7 +1500,7 @@ h3.w3_agile_header,h2.w3_agile_header {
 }
 h3.w3_agile_header:after,h2.w3_agile_header:after{
     content: '';
-    background: #3399cc;
+    background: #03ad1d;
     height: 2px;
     width: 15%;
     position: absolute;

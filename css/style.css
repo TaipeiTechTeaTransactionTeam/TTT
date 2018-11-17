@@ -342,7 +342,7 @@ ul.multi-column-dropdown h6 {
 }
 .top-brands h2:after,.newproducts-w3agile h3:after,.login h2:after,.register h2:after,.faq-w3agile h3:after,.brands h3:after{
 	content: '';
-    background: #3399cc;
+    background: #03ad1d;
     height: 2px;
     width: 15%;
     position: absolute;
@@ -403,7 +403,7 @@ ul.multi-column-dropdown h6 {
 .snipcart-details input.button {
     font-size: 14px;
     color: #fff;
-    background: #3399cc;
+    background: #03ad1d;
     text-decoration: none;
     position: relative;
     border: none;
@@ -414,7 +414,7 @@ ul.multi-column-dropdown h6 {
     outline: none;
 }
 .agile_top_brand_left_grid:hover .snipcart-details input.button,.snipcart-details input.button:hover{
-    background: #03ad1d;
+    background: #3399cc;
 }
 .product_list_header input.button {
     color: #fff;
@@ -578,7 +578,7 @@ p.w3l-ad {
     margin-bottom: 13px;
 }
 i.blue-star {
-    color: #3399cc;
+    color: #03ad1d;
 }
 i.gray-star {
     color: #808080;

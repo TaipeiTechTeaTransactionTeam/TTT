@@ -3429,3 +3429,8 @@ td.invert-image a img {
     text-align: center;
 
 }
+.orderButtons div
+{
+    text-align: center;
+    flex-grow:1;
+}

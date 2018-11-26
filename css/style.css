@@ -1995,8 +1995,16 @@ a.callbacks1_s3.active,a.callbacks1_s3:focus{
 .w3_agileits_contact_grid_right{
 	padding:0 4em 0 12em;
 }
-.w3_agileits_contact_grid_right form{
+.w3_agileits_contact_grid_right form,.product_edit form{
 	padding:1em 0 0;
+}
+.d-flex
+{
+    display: flex;
+}
+.justify-content-center
+{
+    justify-content:center;
 }
 /*-- effect --*/
 .input {
@@ -2128,7 +2136,7 @@ a.callbacks1_s3.active,a.callbacks1_s3:focus{
 	-webkit-transform: translate3d(0, -2.4em, 0) scale3d(0.8, 0.8, 1);
 	transform:translate3d(0, -2.4em, 0) scale3d(0.8, 0.8, 1) translateZ(1px);
 }
-.w3_agileits_contact_grid_right textarea {
+.w3_agileits_contact_grid_right textarea,.product_edit textarea {
     outline: none;
     width: 100%;
     background: #f5f5f5;
@@ -2140,10 +2148,10 @@ a.callbacks1_s3.active,a.callbacks1_s3:focus{
     font-weight: bold;
     margin: 2em 0 0;
 }
-.w3_agileits_contact_grid_right textarea::-webkit-input-placeholder {
+.w3_agileits_contact_grid_right textarea::-webkit-input-placeholder,.product_edit textarea::-webkit-input-placeholder {
 	color: #212121 !important;
 }
-.w3_agileits_contact_grid_right input[type="submit"] {
+.w3_agileits_contact_grid_right input[type="submit"],.product_edit input[type="submit"] {
     outline: none;
     width: 100%;
     background: #212121;
@@ -2156,7 +2164,7 @@ a.callbacks1_s3.active,a.callbacks1_s3:focus{
     margin: 1em 0 0;
     letter-spacing: 5px;
 }
-.w3_agileits_contact_grid_right input[type="submit"]:hover{
+.w3_agileits_contact_grid_right input[type="submit"]:hover,.product_edit input input[type="submit"]{
 	background:#3399cc;
 }
 /*-- //contact --*/

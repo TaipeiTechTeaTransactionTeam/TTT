@@ -2006,6 +2006,11 @@ a.callbacks1_s3.active,a.callbacks1_s3:focus{
 {
     justify-content:center;
 }
+/*report*/
+.report .row
+{
+    margin-bottom: 2em;
+}
 /*-- effect --*/
 .input {
 	position: relative;

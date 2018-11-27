@@ -220,6 +220,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- //breadcrumbs -->
 
     <!-- //插入區 -->
+
     <div class="userpanel-image-container">
       <img src="images/綠茶.jpg" alt="" class="userpanel-main_image" />
       <h3>使用者名稱:e.g.綠茶ㄅㄧㄠˇ</h3>
@@ -227,29 +228,64 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <div class="list-group">
-            <a class="list-group-item list-group-item-action">
-              <span class="badge">14</span> 購買清單
-              <div class="d-flex justify-content-center orderButtons">
-                <div>
-                  <div class="glyphicon glyphicon-credit-card"></div>
-                  <div>待付款</div>
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#user">買</a></li>
+            <li><a data-toggle="tab" href="#seller">賣</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="user" class="tab-pane fade in active">
+                <div class="list-group">
+                    <a class="list-group-item list-group-item-action">
+                      <span class="badge">14</span> 購買清單
+                      <div class="d-flex justify-content-center orderButtons">
+                        <div>
+                          <div class="glyphicon glyphicon-credit-card"></div>
+                          <div>待付款</div>
+                        </div>
+                        <div>
+                          <div class="glyphicon glyphicon-plane"></div>
+                          <div>待出貨</div>
+                        </div>
+                        <div>
+                          <div class="glyphicon glyphicon-copy"></div>
+                          <div>待收貨</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a class="list-group-item  list-group-item-action">
+                      <span class="badge">14</span> 折價券
+                    </a>
+                    <a
+                      class="list-group-item list-group-item-action"
+                      href="accountPanel.html"
+                      >帳戶設定</a
+                    >
                 </div>
-                <div>
-                  <div class="glyphicon glyphicon-plane"></div>
-                  <div>待出貨</div>
+            </div>
+            <div id="seller" class="tab-pane fade">
+              <div class="list-group">
+                    <a class="list-group-item list-group-item-action">
+                      <span class="badge">14</span> 顧客訂單
+                      <div class="d-flex justify-content-center orderButtons">
+                        <div>
+                          <div class="glyphicon glyphicon-plane"></div>
+                          <div>待出貨</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a class="list-group-item  list-group-item-action" href="editProduct.html">
+                        新增商品
+                      </a>
+                    <a class="list-group-item  list-group-item-action">
+                       折價券管理
+                    </a>
+                    <a class="list-group-item  list-group-item-action" href="report.html">
+                        銷售報表
+                     </a>
                 </div>
-                <div>
-                  <div class="glyphicon glyphicon-copy"></div>
-                  <div>待收貨</div>
-                </div>
-              </div>
-            </a>
-            <a class="list-group-item  list-group-item-action">
-              <span class="badge">14</span> 折價券
-			</a>
-			<a class="list-group-item list-group-item-action" href="accountPanel.html">帳戶設定</a>
+            </div>
           </div>
+         
         </div>
       </div>
     </div>

@@ -4,6 +4,18 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+/* .mt-1{margin-top:1em}
+.mt-2{margin-top:2em}
+.mb-1{margin-bottom: 1em}
+.mb-2{margin-bottom: 2em} */
+/* .mx-auto{
+    margin-left:auto;
+    margin-right: auto;
+}
+.my-auto{
+    margin-top: auto;
+    margin-bottom: auto;
+} */
 html, body{
     font-size: 100%;
 	font-family: "Noto Sans CJK TC Regular", "微軟正黑體", sans-serif,'Open Sans', sans-serif;
@@ -1490,7 +1502,7 @@ input#amount {
 .about,.about-team, .contact,.codes {
     padding: 5em 0;
 }
-h3.w3_agile_header,h2.w3_agile_header {
+h3.w3_agile_header,h2.w3_agile_header,.bheader {
     text-align: center;
     color: #212121;
     padding-bottom: .5em;
@@ -1498,7 +1510,7 @@ h3.w3_agile_header,h2.w3_agile_header {
     font-size: 2.5em;
     text-transform: uppercase
 }
-h3.w3_agile_header:after,h2.w3_agile_header:after{
+h3.w3_agile_header:after,h2.w3_agile_header:after,.bheader:after{
     content: '';
     background: #03ad1d;
     height: 2px;
@@ -2505,8 +2517,12 @@ h3.agileits-icons-title {
 .snipcart-details {
     width: 81%;
 }
-h3.w3_agile_header, h2.w3_agile_header {
+h3.w3_agile_header, h2.w3_agile_header,.bheader {
     font-size: 2em;
+}
+
+.bheader{
+    
 }
 .w3_agileits_contact_grid_right {
     padding: 0 2em 0 6em;
@@ -3018,7 +3034,7 @@ p.w3l-ad {
 .sorting-left {
     width: 42%;
 }
-h3.w3_agile_header, h2.w3_agile_header {
+h3.w3_agile_header, h2.w3_agile_header,.bheader {
     font-size: 1.7em;
 }
 .agileits_w3layouts_map_pos {
@@ -3319,7 +3335,7 @@ ul.cate ul {
 .agile_map	iframe {
     min-height: 430px;
 }
-h3.w3_agile_header, h2.w3_agile_header {
+h3.w3_agile_header, h2.w3_agile_header,.bheader {
     font-size: 1.4em;
 }
 .about-agileinfo {

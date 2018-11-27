@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <link rel="stylesheet" href="css/bootstrap4.css" >
     <title>TaipeiTech Tea Transaction</title>
     <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -213,79 +214,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               >首頁</a
             >
           </li>
-          <li class="active">使用者</li>
+          <li >
+            <a href="userpanel.html">使用者</a>
+          </li>
+          <li class="active">
+            帳號設定
+          </li>
         </ol>
       </div>
     </div>
     <!-- //breadcrumbs -->
 
     <!-- //插入區 -->
-
-    <div class="userpanel-image-container">
-      <img src="images/綠茶.jpg" alt="" class="userpanel-main_image" />
-      <h3>使用者名稱:e.g.綠茶ㄅㄧㄠˇ</h3>
-    </div>
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#user">買</a></li>
-            <li><a data-toggle="tab" href="#seller">賣</a></li>
-          </ul>
-          <div class="tab-content">
-            <div id="user" class="tab-pane fade in active">
-                <div class="list-group">
-                    <a class="list-group-item list-group-item-action">
-                      <span class="badge">14</span> 購買清單
-                      <div class="d-flex justify-content-center orderButtons">
-                        <div>
-                          <div class="glyphicon glyphicon-credit-card"></div>
-                          <div>待付款</div>
-                        </div>
-                        <div>
-                          <div class="glyphicon glyphicon-plane"></div>
-                          <div>待出貨</div>
-                        </div>
-                        <div>
-                          <div class="glyphicon glyphicon-copy"></div>
-                          <div>待收貨</div>
-                        </div>
-                      </div>
-                    </a>
-                    <a class="list-group-item  list-group-item-action">
-                      <span class="badge">14</span> 折價券
-                    </a>
-                    <a
-                      class="list-group-item list-group-item-action"
-                      href="accountPanel.html"
-                      >帳戶設定</a
-                    >
-                </div>
-            </div>
-            <div id="seller" class="tab-pane fade">
-              <div class="list-group">
-                    <a class="list-group-item list-group-item-action">
-                      <span class="badge">14</span> 顧客訂單
-                      <div class="d-flex justify-content-center orderButtons">
-                        <div>
-                          <div class="glyphicon glyphicon-plane"></div>
-                          <div>待出貨</div>
-                        </div>
-                      </div>
-                    </a>
-                    <a class="list-group-item  list-group-item-action" href="editProduct.html">
-                        新增商品
-                      </a>
-                    <a class="list-group-item  list-group-item-action">
-                       折價券管理
-                    </a>
-                    <a class="list-group-item  list-group-item-action" href="report.html">
-                        銷售報表
-                     </a>
-                </div>
-            </div>
+
+            <h2 class="bheader mt-3">帳號設定</h2>
+            <a class="glyphicon glyphicon-menu-left" href="userpanel.html"></a>
+            <div class="container my-1">基本資料</div>
+          <div class="list-group">
+            <a class="list-group-item  list-group-item-action" href="userSetting.html">個人檔案設定</li>
+            <a class="list-group-item list-group-item-action">收件地址</a>
+            <a class="list-group-item list-group-item-action">支付信用卡/銀行設定</a>
           </div>
-         
+          <div class="container my-1">其他</div>
+          <div class="list-group">
+              <a class="list-group-item list-group-item-action">刪除帳號申請</a>
+              <a class="list-group-item list-group-item-action text-light bg-secondary">登出帳號</a>
+          </div>
+            
+
         </div>
       </div>
     </div>
@@ -395,7 +354,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <li>
               <a href="#" class="w3_agile_facebook"
                 ><i class="fa fa-facebook" aria-hidden="true"></i
-              ></a>
+              ></div>
             </li>
             <li>
               <a href="#" class="agile_twitter"

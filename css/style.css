@@ -3481,14 +3481,19 @@ td.invert-image a img {
 }
 .item-list{
     width: 100%;
-    border: #BEBEBE;
-    border-style: solid;
-    border-width: 1px;
+    /* border: #BEBEBE; */
+    /* border-style: solid;
+    border-width: 1px; */
     padding-bottom: 10px;
 }
 .order-item{
     padding-left: 20px;
     padding-top: 20px;
+    border:#BEBEBE;
+    border-style: solid;
+    border-width: 1px;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 .item-header{
     width: 100%;

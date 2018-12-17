@@ -33,8 +33,7 @@ class CheckOutProduct
         this.cartItem.on("destroy",removeViews);
         this.cartView=cartView;
         this.checkView=checkView;
-        this.cartView.closeOnclick=()=>this.cartItem.destroy();
-        this.
+   
     }
     removeViews()
     {

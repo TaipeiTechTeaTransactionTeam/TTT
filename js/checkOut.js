@@ -1,3 +1,8 @@
+/**
+ * @function isDebug
+ * 在網址後方加入#debug 判斷為True
+ * 
+ */
 function isDebug()
 {
     return location.hash.search("debug")!==-1;
@@ -16,7 +21,19 @@ class CheckOut
     constructor(miniCart)
     {
         this.miniCart=miniCart;
+        this.rigthDisplay=document.querySelector(".checkout-right");
+        this.leftBasketDisplay=document.querySelector(".")
         this.cart=this.miniCart.cart;
+        var tb=document.querySelector("tbody");
+        var calList=document.getElementById("test");
+        for(var i in paypal.minicart.cart.items())
+        {
+            var item=paypal.minicart.cart.items()[i];
+            tb.append((new Nawa.Class.ProductCartView(item,i)).display);
+            calList.append((new Nawa.Class.ProductCheckView(item)).display);
+        }
+        calList.append((new Nawa.Class.ProductCheckView({name:"總金額",total:paypal.minicart.cart.total()})).display);
+            
     }
     get items()
     {
@@ -29,11 +46,14 @@ class CheckOutProduct
     constructor(cartItem,cartView,checkView)
     {
         this.cartItem=cartItem;
-        this.cartItem.on("change",updateViews);
-        this.cartItem.on("destroy",removeViews);
         this.cartView=cartView;
         this.checkView=checkView;
-   
+        this.cartItem.on("change",()=>{this.onChange();this.updateViews();});
+        this.cartView.plusOnclick=()=>{this.quantity++;};
+        this.cartView.minusOnclick=()=>{this.quantity>=1?this.quantity--:"nothing";}
+    }
+    onChange()
+    {
     }
     removeViews()
     {
@@ -284,8 +304,9 @@ $(
             for(var i in paypal.minicart.cart.items())
             {
                 var item=paypal.minicart.cart.items()[i];
-                tb.append((new Nawa.Class.ProductCartView(item,i)).display);
-                calList.append((new Nawa.Class.ProductCheckView(item)).display);
+                var product=new Nawa.Class.CheckOutProduct(item,new Nawa.Class.ProductCartView(item,i),new Nawa.Class.ProductCheckView(item));
+                tb.append(product.cartView.display);
+                calList.append(product.checkView.display);
             }
             calList.append((new Nawa.Class.ProductCheckView({name:"總金額",total:paypal.minicart.cart.total()})).display);
                 

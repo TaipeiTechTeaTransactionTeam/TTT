@@ -9,37 +9,225 @@ function isDebug()
 }
 var Nawa=Nawa||{};
 Nawa.Class=Nawa.Class||{};
+/*
+  採用miniCart標準
+  amount = 價格
+  quantity = 數量
+  total = 單項總價
+ */
+
 /**
- * 採用miniCart標準
- * amount = 價格
- * quantity = 數量
- * total = 單項總價
+ * 結算總管物件
+ * @Class CheckOut
+ *  
  */
 Nawa.Class.CheckOut=
 class CheckOut
 {
-    constructor(miniCart)
+    constructor(cart)
     {
-        this.miniCart=miniCart;
-        this.rigthDisplay=document.querySelector(".checkout-right");
-        this.leftBasketDisplay=document.querySelector(".")
-        this.cart=this.miniCart.cart;
-        var tb=document.querySelector("tbody");
-        var calList=document.getElementById("test");
-        for(var i in paypal.minicart.cart.items())
+        this.cart=cart;
+        this.cartTable=new Nawa.Class.ShoppingCartTable();
+        this.checkoutList=new Nawa.Class.CheckOutList(cart);
+        this.checkoutList.updateTotal();
+        this.layoutSetup();
+        this.productItems=[];
+        this.number=1;
+        for(var cartItem of this.items)
         {
-            var item=paypal.minicart.cart.items()[i];
-            tb.append((new Nawa.Class.ProductCartView(item,i)).display);
-            calList.append((new Nawa.Class.ProductCheckView(item)).display);
+            this.append(cartItem);
+            this.number++;
         }
-        calList.append((new Nawa.Class.ProductCheckView({name:"總金額",total:paypal.minicart.cart.total()})).display);
+        this.cart.on("remove",this.onRemove,this);
+        this.onViewsChange();
+
+    }
+    onRemove()
+    {
+        this.onChange();
+        this.onViewsChange();
+    }
+    onAdd()
+    {
+        this.onChange();
+        this.onViewsChange();
+    }
+    onChange()
+    {
+        this.checkoutList.updateTotal();
+    }
+    onViewsChange()
+    {
+        if(this.items.length==0)
+        {
+            this.checkoutList.title="快去逛逛吧....";
+            this.cartTable.hide();
+        }
             
+        if(this.items.length>=1)
+        {
+            this.checkoutList.title="結算";
+            this.cartTable.show();
+        }
+            
+    }
+    append(cartItem,i)
+    {
+        i=typeof i === "undefined"?this.number:i;
+        var product=new Nawa.Class.CheckOutProduct(cartItem,new Nawa.Class.ProductCartView(cartItem,this.number),new Nawa.Class.ProductCheckView(cartItem));
+        product.closeOnclick=(sender)=>{this.removeItem(sender);sender.cartView.remove();sender.checkView.remove();}
+        var that = this;
+        product.onChange=()=>this.onChange();
+        this.productItems.push(product);
+        this.cartTable.display.append(product.cartView.display);
+        this.checkoutList.append(product.checkView.display);
+        this.onViewsChange();
+    }
+    layoutSetup()
+    {
+        this.rigthDisplay=document.querySelector(".checkout-right");
+        this.rigthDisplay.innerHTML="";
+        this.leftDisplay=document.querySelector(".checkout-left");
+        this.rigthDisplay.append(this.cartTable.display);
+        this.rigthDisplay.append(this.cartTable.emptyDisplay);
+        this.leftDisplay.prepend(this.checkoutList.display);
+    }
+    removeItem(item)
+    {
+        if(typeof item==="undefined")return;
+        switch(item.constructor.name)
+        {
+            case "CheckOutProduct":
+                item=item.cartItem;
+            break;
+            case "c":
+            default:
+        }
+        this.cart.remove(this.items.indexOf(item));
     }
     get items()
     {
         return this.cart.items();
     }
 }
+/**
+ * 購物車表格
+ */
+Nawa.Class.ShoppingCartTable=
+class ShoppingCartTable
+{
+    constructor()
+    {
+        this.createElements();
+        this.display.classList.add("timetable_sub");
+        this.emptyText="這裡空空如也...";
+        this.hide();
+    }
+    createElements()
+    {
+        this.display=document.createElement("table");
+        this.display.innerHTML=
+        `<thead>
+            <tr>
+                <th>編號</th>	
+                <th>商品</th>
+                <th>數量</th>
+                <th>商品名稱</th>
+                <th>價格</th>
+                <th>刪除</th>
+            </tr>
+        </thead>`;
+        this.display.append(this.bodyDisplay=document.createElement("tbody"));
+        this.emptyDisplay=document.createElement("div");
+    }
+    show()
+    {this.visible=true;}
+    hide()
+    {
+        this.visible=false;
+    }
+    set emptyText(val)
+    {
+        this.emptyDisplay.innerHTML=val;
+    }
+    get emptyText()
+    {
+        return this.emptyDisplay.innerHTML;
+    }
+    set visible(val)
+    {
+        if(val!==this.visible)
+        {
+            if(val)
+            {
+                this.display.classList.remove("d-none");
+                this.emptyDisplay.classList.add("d-none");
+            }
+            else
+            {
+                this.display.classList.add("d-none");
+                this.emptyDisplay.classList.remove("d-none");
+            }
+        }
+    }
+    get visible()
+    {
+        return !this.display.classList.contains("d-none");
+    }
+    
+}
+/**
+ * 結算清單的列表Html管理物件
+ */
+Nawa.Class.CheckOutList=
+class CheckOutList
+{
+    constructor(cart)
+    {
+        this.totalObject=new Nawa.Class.ProductCheckView({name:"總額",total:0});
+        this.createElements();
+        this.display.classList.add("checkout-left-basket");
+        this.cart=cart;
+    }
+    get total()
+    {
+        return this.cart.total();
+    }
+    set total(val)
+    {
+        this.totalObject.total=val;
+    }
+    set title(val)
+    {
+        this.titleDisplay.innerText=val;
+    }
+    get title()
+    {
+        return this.titleDisplay.innerText;
+    }
+    updateTotal()
+    {
+        this.total=this.total;
+    }
+    append(display)
+    {
+        this.listDisplay.insertBefore(display,this.totalObject.display);
+    }
+    createElements()
+    {
+        this.display=document.createElement("div");
+        this.display.append
+        (
+            this.titleDisplay=document.createElement("h4"),
+            this.listDisplay=document.createElement("ul")
+        );
+        this.listDisplay.append(this.totalObject.display);
+    }
+    
+}
+/**
+ * 單個物品的關聯、處理(model)
+ */
 Nawa.Class.CheckOutProduct=
 class CheckOutProduct
 {
@@ -49,9 +237,11 @@ class CheckOutProduct
         this.cartView=cartView;
         this.checkView=checkView;
         this.cartItem.on("change",()=>{this.onChange();this.updateViews();});
+        this.cartView.closeOnclick=()=>{this.closeOnclick(this);}
         this.cartView.plusOnclick=()=>{this.quantity++;};
         this.cartView.minusOnclick=()=>{this.quantity>=1?this.quantity--:"nothing";}
     }
+    closeOnclick(product){}
     onChange()
     {
     }
@@ -81,7 +271,7 @@ class CheckOutProduct
 Nawa.Class.ProductCartView=
 class ProductCartView
 {
-    constructor(cartItem,number,moneySymbol="$")
+    constructor(cartItem,number,moneySymbol="NT$")
     {
         this.createFields();
         this.addClasses();
@@ -103,11 +293,11 @@ class ProductCartView
     {
         this.plusButton.addEventListener("click",()=>this.plusOnclick());
         this.minusButton.addEventListener("click",()=>this.minusOnclick());
-        this.closeButton.addEventListener("click",()=>this.closeOnclick());
+        this.closeButton.addEventListener("click",()=>{this.closeOnclick()});
     }
     plusOnclick(){}
     minusOnclick(){}
-    closeOnclick(){}
+    closeOnclick(){console.log("ProductCartView");}
     createFields()
     {
         this.display=document.createElement("tr");
@@ -234,7 +424,7 @@ class ProductCartView
 Nawa.Class.ProductCheckView=
 class ProductCheckView
 {
-    constructor(inputItem,moneySymbol="$")
+    constructor(inputItem,moneySymbol="NT$")
     {
         this.moneySymbol=moneySymbol;
         this.createElements();
@@ -299,17 +489,8 @@ $(
     {
         if(isDebug())
         {
-            var tb=document.querySelector("tbody");
-            var calList=document.getElementById("test");
-            for(var i in paypal.minicart.cart.items())
-            {
-                var item=paypal.minicart.cart.items()[i];
-                var product=new Nawa.Class.CheckOutProduct(item,new Nawa.Class.ProductCartView(item,i),new Nawa.Class.ProductCheckView(item));
-                tb.append(product.cartView.display);
-                calList.append(product.checkView.display);
-            }
-            calList.append((new Nawa.Class.ProductCheckView({name:"總金額",total:paypal.minicart.cart.total()})).display);
-                
+
         }
+        checkOut=new Nawa.Class.CheckOut(paypal.minicart.cart);
     }
 );

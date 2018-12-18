@@ -9,6 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>Super Market an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Checkout :: w3layouts</title>
 <!-- for-mobile-apps -->
+<link rel="stylesheet" href="css/bootstrap4.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Super Market Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -183,41 +184,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<h2>您的購物車包含以下商品：</h2>
 			<div class="checkout-right">
-				<table class="timetable_sub">
-					<thead>
-						<tr>
-							<th>編號</th>	
-							<th>商品</th>
-							<th>數量</th>
-							<th>商品名稱</th>
-						
-							<th>價格</th>
-							<th>刪除</th>
-						</tr>
-					</thead>
-					<tbody>
-
-					</tbody>
-								<!--quantity-->
-									<script>
-									$('.value-plus').on('click', function(){
-										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
-										divUpd.text(newVal);
-									});
-
-									$('.value-minus').on('click', function(){
-										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
-										if(newVal>=1) divUpd.text(newVal);
-									});
-									</script>
-								<!--quantity-->
-				</table>
+				
 			</div>
 			<div class="checkout-left">	
-				<div class="checkout-left-basket">
-					<h4>結算</h4>
-					<ul id="test"></ul>
-				</div>
 				<div class="checkout-right-basket">
 					<a href="single.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>繼續購物</a>
 				</div>
@@ -243,21 +212,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-3 w3_footer_grid">
 				<h3>詳細資訊</h3>
 				<ul class="info"> 
-					<!--<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="about.html">About Us</a></li>-->
 					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="contact.html">聯絡我們</a></li>
-					<!--<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="short-codes.html">Short Codes</a></li>
-					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="faq.html">FAQ's</a></li>
-					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="products.html">Special Products</a></li>-->
 				</ul>
 			</div>
 			<div class="col-md-3 w3_footer_grid">
 				<h3>商品目錄</h3>
 				<ul class="info"> 
-					<!--<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="groceries.html">Groceries</a></li>
-					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="household.html">Household</a></li>
-					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="personalcare.html">Personal Care</a></li>
-					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="packagedfoods.html">Packaged Foods</a></li>
-					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="beverages.html">Beverages</a></li>-->
 					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="blacktea.html">紅茶</a></li>
 					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="greentea.html">綠茶</a></li>
 					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="oolong.html">烏龍茶</a></li>

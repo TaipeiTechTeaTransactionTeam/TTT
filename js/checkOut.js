@@ -32,11 +32,11 @@ class CheckOut
         this.checkoutList.updateTotal();
         this.layoutSetup();
         this.productItems=[];
-        this.number=1;
+       // this.number=1;
         for(var cartItem of this.items)
         {
             this.append(cartItem);
-            this.number++;
+            //this.number++;
         }
         this.cart.on("remove",this.onRemove,this);
         this.onViewsChange();
@@ -71,10 +71,10 @@ class CheckOut
         }
             
     }
-    append(cartItem,i)
+    append(cartItem)
     {
-        i=typeof i === "undefined"?this.number:i;
-        var product=new Nawa.Class.CheckOutProduct(cartItem,new Nawa.Class.ProductCartView(cartItem,this.number),new Nawa.Class.ProductCheckView(cartItem));
+       // i=typeof i === "undefined"?this.number:i;
+        var product=new Nawa.Class.CheckOutProduct(cartItem,new Nawa.Class.ProductCartView(cartItem/*,this.number*/),new Nawa.Class.ProductCheckView(cartItem));
         product.closeOnclick=(sender)=>{this.removeItem(sender);sender.cartView.remove();sender.checkView.remove();}
         var that = this;
         product.onChange=()=>this.onChange();
@@ -128,8 +128,7 @@ class ShoppingCartTable
         this.display=document.createElement("table");
         this.display.innerHTML=
         `<thead>
-            <tr>
-                <th>編號</th>	
+            <tr>	
                 <th>商品</th>
                 <th>數量</th>
                 <th>商品名稱</th>
@@ -271,14 +270,14 @@ class CheckOutProduct
 Nawa.Class.ProductCartView=
 class ProductCartView
 {
-    constructor(cartItem,number,moneySymbol="NT$")
+    constructor(cartItem,/*number,*/moneySymbol="NT$")
     {
         this.createFields();
         this.addClasses();
         this.moneySymbol=moneySymbol;
         this.addEventListeners();
         this.attrFromCartItem(cartItem);
-        this.number=number||1;
+        //this.number=number||1;
     }
     attrFromCartItem(cartItem)
     {
@@ -297,13 +296,13 @@ class ProductCartView
     }
     plusOnclick(){}
     minusOnclick(){}
-    closeOnclick(){console.log("ProductCartView");}
+    closeOnclick(){}
     createFields()
     {
         this.display=document.createElement("tr");
         this.display.append
         (
-            this.numField=document.createElement("td"),
+           // this.numField=document.createElement("td"),
             this.createImageField(),
             this.createQuantityField(),
             this.nameField=document.createElement("td"),
@@ -396,14 +395,14 @@ class ProductCartView
     {
         return parseFloat(this._amount);
     }
-    set number(val)
+    /*set number(val)
     {
         this.numField.innerText=val;
-    }
-    get number()
-    {
-        return parseInt(this.numField.innerText);
-    }
+    }*/
+    // get number()
+    // {
+    //     return parseInt(this.numField.innerText);
+    // }
     set name(val)
     {
         this.nameField.innerText=val;
